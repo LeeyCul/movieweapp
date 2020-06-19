@@ -1,0 +1,34 @@
+.item_view {
+    width: 100%;
+    padding: 10rpx 15rpx;
+    box-sizing: border-box;
+    display: flex;
+
+    .title {
+        display: inline-block;
+        line-height: 60rpx;
+        font-weight: bold;
+    }
+
+    .item_box {
+        overflow-x: scroll;
+        white-space: nowrap;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            color: transparent;
+        }
+
+        .item {
+            margin: 0 15rpx;
+            display: inline-block;
+            line-height: 60rpx;
+            font-size: 28rpx;
+        }
+
+        .active {
+            border-bottom: 4rpx solid #55ccc9;
+        }
+    }
+}

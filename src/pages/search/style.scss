@@ -1,0 +1,12 @@
+.search_conainer {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    .box_view {
+        margin-top: 10rpx;
+    }
+}

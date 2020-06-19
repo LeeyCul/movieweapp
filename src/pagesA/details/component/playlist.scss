@@ -1,0 +1,30 @@
+.palylist_box {
+    width: 100%;
+    padding-top: 10rpx;
+
+    .title {
+        font-size: 26rpx;
+        border-bottom: 4rpx solid #55ccc9;
+    }
+
+    .list {
+        margin-top: 20rpx;
+        display: grid;
+        grid-template-columns: minmax(max-content, 1fr) 1fr 1fr 1fr 1fr;
+
+        .btn {
+            height: 50rpx;
+            font-size: 20rpx !important;
+            height: 50rpx;
+            line-height: 50rpx;
+            margin-bottom: 20rpx;
+            background: #49b849;
+            color: #fff;
+        }
+
+        .active {
+            background: #f7f8fa;
+            color: #000;
+        }
+    }
+}

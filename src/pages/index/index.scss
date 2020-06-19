@@ -1,0 +1,16 @@
+.index_conainer {
+    height: 100vh;
+
+    .tab_view {
+        padding-top: 6vh;
+        height: 94vh;
+    }
+
+    .at-tabs__item {
+        overflow: visible;
+    }
+
+    .at-tabs-pane--active {
+        height: 85vh;
+    }
+}

@@ -1,0 +1,88 @@
+.details_conainer {
+    width: 100%;
+    height: 100vh;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+
+    .base_info {
+        margin-top: 10rpx;
+
+        .nodata {
+            height: 300rpx;
+            line-height: 300rpx;
+            text-align: center;
+        }
+
+        .info_box {
+            display: flex;
+            justify-content: space-between;
+
+            .left {
+                width: 40%;
+                height: 370rpx;
+
+                image {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10rpx;
+                }
+            }
+
+            .right {
+                width: 57%;
+            }
+        }
+    }
+
+    .plot_box {
+        padding-top: 10rpx;
+
+        .title {
+            font-size: 26rpx;
+            border-bottom: 4rpx solid #55ccc9;
+        }
+        .content {
+            font-size: 22rpx;
+            text-indent: 1.5rem;
+            margin-top: 20rpx;
+            line-height: 40rpx;
+        }
+
+        .btn_box {
+            margin-top: 10rpx;
+            display: flex;
+            justify-content: space-between;
+
+            .btn {
+                width: 40%;
+                height: 50rpx;
+                border: none;
+                border-radius: 40rpx;
+                font-size: 22rpx;
+                line-height: 5orpx;
+                color: #fff;
+            }
+
+            .share {
+                background: linear-gradient(to right, #43b748, #7dc440);
+            }
+
+            .search {
+                background: linear-gradient(to right, #068aef, #18b1c1);
+            }
+        }
+    }
+
+    .avow {
+        .title {
+            font-size: 26rpx;
+            border-bottom: 4rpx solid #55ccc9;
+        }
+        .content {
+            font-size: 22rpx;
+            text-indent: 1.5rem;
+            margin-top: 20rpx;
+            line-height: 40rpx;
+        }
+    }
+}

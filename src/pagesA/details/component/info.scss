@@ -1,0 +1,29 @@
+.info_box {
+    width: 100%;
+    height: 100%;
+    font-size: 24rpx;
+    line-height: 48rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    .common {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .title {
+        font-size: 30rpx;
+    }
+
+    .other {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        text {
+            width: 50%;
+        }
+    }
+}

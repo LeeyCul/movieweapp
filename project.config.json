@@ -1,0 +1,65 @@
+{
+    "miniprogramRoot": "dist/",
+    "projectname": "wemovie",
+    "description": "",
+    "appid": "wx92c3769442c923eb",
+    "setting": {
+        "urlCheck": false,
+        "es6": false,
+        "postcss": false,
+        "minified": false,
+        "newFeature": true,
+        "coverView": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        }
+    },
+    "compileType": "miniprogram",
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "search": {
+            "current": -1,
+            "list": []
+        },
+        "conversation": {
+            "current": -1,
+            "list": []
+        },
+        "plugin": {
+            "current": -1,
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "current": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "current": -1,
+            "list": [
+                {
+                    "id": 0,
+                    "name": "pagesA/play/index",
+                    "pathName": "pagesA/play/index",
+                    "query": "",
+                    "scene": 1037,
+                    "referrerInfo": {
+                        "appId": "wx92c3769442c923eb",
+                        "extraData": "{ \"id\": \"3541777\",\"url\":\"http://douban.donghongzuida.com/20200531/2871_19970ab4/index.m3u8\",\"key\":0}"
+                    }
+                }
+            ]
+        }
+    }
+}
