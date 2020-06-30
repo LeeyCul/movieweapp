@@ -1,6 +1,6 @@
 import Taro, { useState, useEffect } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtTabs, AtTabsPane, AtActivityIndicator } from 'taro-ui'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 
 import './index.scss'
 
@@ -12,32 +12,34 @@ function Ranking() {
     const [rankTab, setRankTab] = useState([])
     const [rankList, setRankList] = useState([])
 
-    const getTitle = async () => {
-        let res: any = await api.getRankTab({})
-        const { tab } = res
-        const result =
-            tab &&
-            tab.length &&
-            tab.map(item => {
-                return { title: item }
-            })
-        setRankTab(result)
+    const getTitle = () => {
+        api.getRankTab({}).then((res: any) => {
+            const { tab } = res
+            const result =
+                tab &&
+                tab.length &&
+                tab.map(item => {
+                    return { title: item }
+                })
+            setRankTab(result)
+        })
     }
 
-    const getRankList = async () => {
-        let res: any = await api.getRankList({
+    const getRankList = () => {
+        api.getRankList({
             format: 'json',
             page_name: 'index',
             block_sign: 'list_index_top_movie_all,index_top_tv_all,index_top_tamasha,index_top_cartoon'
+        }).then((res: any) => {
+            const result =
+                res &&
+                res.map(item => {
+                    const { data } = item
+                    const { videos } = data
+                    return { data: videos }
+                })
+            setRankList(result)
         })
-        const result =
-            res &&
-            res.map(item => {
-                const { data } = item
-                const { videos } = data
-                return { data: videos }
-            })
-        setRankList(result)
     }
 
     useEffect(() => {

@@ -1,6 +1,6 @@
-import Taro, { useState, useEffect } from '@tarojs/taro'
+import Taro, { useEffect } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { AtTabs, AtTabsPane, AtActivityIndicator } from 'taro-ui'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 import { useSelector, useDispatch } from '@tarojs/redux'
 import ListView from 'taro-listView'
 
@@ -29,7 +29,7 @@ function Index() {
     }
 
     Taro.showShareMenu({
-        withShareTicket: true,
+        withShareTicket: true
     })
 
     function onPullDownRefresh() {
@@ -75,7 +75,7 @@ function Index() {
 }
 
 Index.config = {
-    navigationBarTitleText: '首页',
+    navigationBarTitleText: '首页'
 }
 
 export default Index

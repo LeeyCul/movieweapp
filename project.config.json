@@ -2,7 +2,7 @@
     "miniprogramRoot": "dist/",
     "projectname": "wemovie",
     "description": "",
-    "appid": "wx92c3769442c923eb",
+    "appid": "wxde754dca42bb4f96",
     "setting": {
         "urlCheck": false,
         "es6": false,
@@ -14,7 +14,7 @@
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
         "checkInvalidKey": true,
-        "checkSiteMap": true,
+        "checkSiteMap": false,
         "uploadWithSourceMap": true,
         "babelSetting": {
             "ignore": [],

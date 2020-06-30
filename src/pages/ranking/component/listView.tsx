@@ -10,13 +10,14 @@ interface IProps {
 }
 
 function ListView({ data = [] }: IProps) {
-    async function handleClick(name) {
-        let res: any = await api.getByName({ name })
-        const { data, code } = res
-        const { id } = data
-        if (code === 200) {
-            Taro.navigateTo({ url: `/pagesA/details/index?id=${id}` })
-        }
+    function handleClick(name) {
+        api.getByName({ name }).then((res: any) => {
+            const { data, code } = res
+            const { id } = data
+            if (code === 200) {
+                Taro.navigateTo({ url: `/pagesA/details/index?id=${id}` })
+            }
+        })
     }
     return (
         <View className="list_view_box">

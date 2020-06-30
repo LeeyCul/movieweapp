@@ -11,7 +11,7 @@ const MovieList: FC<IProps> = ({ data }) => {
     function gotoDetails(id) {
         Taro.navigateTo({ url: `/pagesA/details/index?id=${id}` })
     }
-    const total = data && data.length
+    const total = data ? data.length : 0
     const frequency = Math.abs(3 - (total % 3))
     let afterArr = frequency !== 3 && new Array(frequency).fill('1')
 

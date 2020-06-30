@@ -14,18 +14,20 @@ function Details() {
     const [data, setData] = useState<any>()
     const [status, setStatus] = useState<any>({})
 
-    async function getData() {
-        const res: any = await api.getDetails({ id })
-        const { data } = res
-        data[0] &&
-            Taro.setNavigationBarTitle({
-                title: data[0].title
-            })
-        setData(data[0])
+    function getData() {
+        api.getDetails({ id }).then((res: any) => {
+            const { data } = res
+            data[0] &&
+                Taro.setNavigationBarTitle({
+                    title: data[0].title || '...'
+                })
+            setData(data[0])
+        })
     }
-    async function getStatus() {
-        const res: any = await api.getShouStatus({})
-        setStatus(res)
+    function getStatus() {
+        api.getShouStatus({}).then((res: any) => {
+            setStatus(res)
+        })
     }
 
     useEffect(() => {
@@ -91,7 +93,7 @@ function Details() {
             </View>
             {status && status.play_show && (
                 <View>
-                    <PlayList data={data && data.video_url} gotoPlay={gotoPlay} ids={data && data.id} isJump />
+                    <PlayList data={data && data.video_url} gotoPlay={gotoPlay} ids={data && data.id} appId={status && status.appId} isJump />
                     <PlayList
                         data={data && data.play_url}
                         style={{ background: '#f7f8fa', color: '#000' }}

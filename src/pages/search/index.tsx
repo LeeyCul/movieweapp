@@ -26,15 +26,17 @@ function Search() {
         country: '不限',
         name: ''
     })
-    async function getCondition() {
-        const res: any = await api.getCondition({})
-        setCondition(res)
+    function getCondition() {
+        api.getCondition({}).then((res: any) => {
+            setCondition(res)
+        })
     }
 
-    async function searchResult(params) {
-        const res: any = await api.getSearch(params)
-        const { data } = res
-        setDatalist(data)
+    function searchResult(params) {
+        api.getSearch(params).then((res: any) => {
+            const { data } = res
+            setDatalist(data)
+        })
     }
     useEffect(() => {
         getCondition()

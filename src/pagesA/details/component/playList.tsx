@@ -15,16 +15,13 @@ interface IProps {
     gotoPlay?: () => void
     ids?: any
     isJump?: boolean
+    appId?: string[]
 }
 
-function PlayList({ ids, style, title = '点击播放', data, copy = false, isJump = false, gotoPlay }: IProps) {
+function PlayList({ ids, appId = [], style, title = '点击播放', data, copy = false, isJump = false, gotoPlay }: IProps) {
     const dataArr = data && JSON.parse(data)
     const { anthology } = useSelector((state: any) => state.counter)
     const dispatch = useDispatch()
-
-    function random(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min
-    }
 
     function handleClick(url: string, key: number) {
         if (copy) {
@@ -34,9 +31,11 @@ function PlayList({ ids, style, title = '点击播放', data, copy = false, isJu
             dispatch(actions.setPlayUrl(url))
             // gotoPlay && gotoPlay();
             if (isJump) {
-                const listApp = ['wx9a95c4e07434ea28', 'wxa111a1caace55678', 'wxde754dca42bb4f96']
+                const myAppId = 'wxde754dca42bb4f96'
+                const appIdList = appId.length && appId.filter(item => item !== myAppId)
+                const result = appIdList ? appIdList[Math.floor(Math.random() * appIdList.length)] : ''
                 Taro.navigateToMiniProgram({
-                    appId: listApp[random(0, 3)],
+                    appId: result,
                     path: 'pagesA/play/index',
                     extraData: {
                         id: ids,

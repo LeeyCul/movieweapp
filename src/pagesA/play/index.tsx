@@ -1,5 +1,5 @@
 import Taro, { useRouter, useEffect, useState, useDidShow } from '@tarojs/taro'
-import { View, Video, Button } from '@tarojs/components'
+import { View, Video, Button, Text } from '@tarojs/components'
 import { AtIcon } from 'taro-ui'
 import { useSelector, useDispatch } from '@tarojs/redux'
 
@@ -21,6 +21,7 @@ function Paly() {
     const [data, setData] = useState<any>('[]')
     const [rate, setRate] = useState<number>(0)
     const [isShowMore, setIsShowMore] = useState<boolean>(false)
+    const [status, setStatus] = useState<any>({})
     const rateArr: Rate[] = [
         { name: '倍速1.0', rate: 1 },
         { name: '倍速1.25', rate: 1.25 },
@@ -29,15 +30,24 @@ function Paly() {
     ]
     const videoContext = Taro.createVideoContext('myVideo')
 
-    async function getData(id) {
-        const res: any = await api.getDetails({ id })
-        const { data } = res
-        const allData = data[0]
-        const urlList = allData && JSON.parse(allData.video_url)
-        urlList.length > 1 && setIsShowMore(true)
-        setData(allData)
+    function getData(id) {
+        api.getDetails({ id }).then((res: any) => {
+            const { data } = res
+            const allData = data[0]
+            const urlList = allData && JSON.parse(allData.video_url)
+            urlList.length > 1 && setIsShowMore(true)
+            setData(allData)
+        })
     }
+
+    function getStatus() {
+        api.getShouStatus({}).then((res: any) => {
+            setStatus(res)
+        })
+    }
+
     useEffect(() => {
+        getStatus()
         const { referrerInfo } = Taro.getLaunchOptionsSync()
         const { extraData } = referrerInfo
         dispatch(actions.setAnthology(extraData.key))
@@ -51,7 +61,7 @@ function Paly() {
     }
     data &&
         Taro.setNavigationBarTitle({
-            title: data.title
+            title: data.title || '...'
         })
 
     Taro.showShareMenu({
@@ -60,25 +70,37 @@ function Paly() {
 
     return (
         <View className="play_conainer">
-            <Video
-                id="myVideo"
-                src={playUrl}
-                controls={true}
-                autoplay={true}
-                // initialTime="0"
-                loop={false}
-                muted={false}
-            />
-            <View className="rate_conainer">
-                {rateArr.map((item, key) => {
-                    return (
-                        <View className="rate_box" key={item.name} onClick={() => handleRateClick(item.rate, key)}>
-                            <AtIcon data-rate={1} value="lightning-bolt" size="18" color={rate === key ? '#f00' : '#49b849'} />
-                            <View className="text">{item.name}</View>
-                        </View>
-                    )
-                })}
-            </View>
+            {status && status.play_show && (
+                <View>
+                    <Video
+                        id="myVideo"
+                        src={playUrl}
+                        controls={true}
+                        autoplay={true}
+                        // initialTime="0"
+                        loop={false}
+                        muted={false}
+                    />
+                    <View className="rate_conainer">
+                        {rateArr.map((item, key) => {
+                            return (
+                                <View className="rate_box" key={item.name} onClick={() => handleRateClick(item.rate, key)}>
+                                    <AtIcon data-rate={1} value="lightning-bolt" size="18" color={rate === key ? '#f00' : '#49b849'} />
+                                    <View className="text">{item.name}</View>
+                                </View>
+                            )
+                        })}
+                    </View>
+                </View>
+            )}
+            {status && !status.play_show && (
+                <View className="plot_box">
+                    <Text className="title">剧情介绍</Text>
+                    <View className="content">
+                        <Text>{data && data.profile}</Text>
+                    </View>
+                </View>
+            )}
             <View className="btn_box">
                 <Button
                     className="btn search"
@@ -99,7 +121,7 @@ function Paly() {
                     <AtIcon value="share" size="14" color="#FFF"></AtIcon>
                 </Button>
             </View>
-            {isShowMore && <PlayList title="选集" data={data && data.video_url} />}
+            {status && status.play_show && isShowMore && <PlayList title="选集" data={data && data.video_url} />}
         </View>
     )
 }
