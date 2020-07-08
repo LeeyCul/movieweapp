@@ -1,17 +1,17 @@
 .rank_conainer {
-    height: 100vh;
+  height: 100vh;
 
-    .tab_view {
-        padding-top: 6vh;
-        height: 94vh;
-    }
+  .tab_view {
+    padding-top: 6vh;
+    height: 92vh;
+  }
 
-    .at-tabs__item {
-        overflow: visible;
-    }
+  .at-tabs__item {
+    overflow: visible;
+  }
 
-    .at-tabs-pane--active {
-        height: 92vh;
-        background: #f1f1f1;
-    }
+  .at-tabs-pane--active {
+    height: 92vh;
+    background: #f1f1f1;
+  }
 }

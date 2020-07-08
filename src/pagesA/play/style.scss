@@ -1,51 +1,55 @@
 .play_conainer {
+  width: 100%;
+  padding: 10rpx;
+  box-sizing: border-box;
+
+  video {
     width: 100%;
-    padding: 10rpx;
-    box-sizing: border-box;
+  }
 
-    video {
-        width: 100%;
+  .rate_conainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .rate_box {
+      width: 100rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .text {
+        font-size: 18rpx;
+      }
+    }
+  }
+
+  .btn_box {
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      width: 40%;
+      height: 50rpx;
+      border: none;
+      border-radius: 40rpx;
+      font-size: 22rpx;
+      line-height: 5orpx;
+      color: #fff;
     }
 
-    .rate_conainer {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        .rate_box {
-            width: 100rpx;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .text {
-                font-size: 18rpx;
-            }
-        }
+    .share {
+      background: linear-gradient(to right, #43b748, #7dc440);
     }
 
-    .btn_box {
-        margin-top: 20rpx;
-        display: flex;
-        justify-content: space-between;
-
-        .btn {
-            width: 40%;
-            height: 50rpx;
-            border: none;
-            border-radius: 40rpx;
-            font-size: 22rpx;
-            line-height: 5orpx;
-            color: #fff;
-        }
-
-        .share {
-            background: linear-gradient(to right, #43b748, #7dc440);
-        }
-
-        .search {
-            background: linear-gradient(to right, #068aef, #18b1c1);
-        }
+    .search {
+      background: linear-gradient(to right, #068aef, #18b1c1);
     }
+  }
+
+  .adconainer {
+    margin-top: 20rpx;
+  }
 }

@@ -1,16 +1,20 @@
 .index_conainer {
-    height: 100vh;
+  height: 100vh;
 
-    .tab_view {
-        padding-top: 6vh;
-        height: 94vh;
-    }
+  .tab_view {
+    // padding-top: 6vh;
+    height: 72vh;
+  }
 
-    .at-tabs__item {
-        overflow: visible;
-    }
+  .adconainer {
+    padding-top: 7vh;
+  }
 
-    .at-tabs-pane--active {
-        height: 85vh;
-    }
+  .at-tabs__item {
+    overflow: visible;
+  }
+
+  .at-tabs-pane--active {
+    height: 85vh;
+  }
 }
